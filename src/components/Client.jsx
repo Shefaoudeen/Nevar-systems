@@ -103,6 +103,9 @@ const Client = () => {
         start: "top bottom",
       },
     });
+    {
+      /* testing from main */
+    }
     gsap.from("#partners-title", {
       opacity: 0,
       duration: 1.5,
