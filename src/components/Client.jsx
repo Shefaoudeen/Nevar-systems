@@ -79,6 +79,14 @@ const Client = () => {
       repeat : -1,
       ease : "none"
     })
+    gsap.from('#clients-title',{
+      opacity : 0,
+      duration : 1.5,
+      scrollTrigger : {
+        trigger : '#clients-title',
+        start : "top bottom",
+      }
+    })
     gsap.to('.stats',{
       scrollTrigger : {
         trigger : '.stats',
@@ -96,15 +104,23 @@ const Client = () => {
         start : "top bottom",
       }
     })
+    gsap.from('#partners-title',{
+      opacity : 0,
+      duration : 1.5,
+      scrollTrigger : {
+        trigger : '#partners-title',
+        start : "top bottom",
+      }
+    })
   },[])
   return (
-    <div className="w-full flex h-screen bg-gray-900">
+    <div className="w-full flex h-screen bg-gradient-to-tr from-gray-700 via-gray-900  to-gray-700">
       {/* our clients */}
       <div className="hidden xl:flex relative items-center w-[45vw] h-full">
         
         {/* outer wrapper */}
       <div className= "hidden xl:flex justify-center items-center relative h-[45vw] w-[45vw] -translate-x-80">
-          <h1 className="absolute right-[15vw] text-[2vw] w-20 text-white font-bold">OUR CLIENTS</h1>
+          <h1 id="clients-title" className="absolute right-[15vw] text-[2vw] w-20 text-white font-bold">OUR CLIENTS</h1>
         <div ref={wrapperRef} className= "wrapper flex  items-center relative h-full w-full" style={{boxShadow: "inset 0 0 0 15vh #D3D3D3",borderRadius:"50%"}}> 
               {ClientLogos.map((item)=>{
                 return (
@@ -120,15 +136,27 @@ const Client = () => {
       <div className="flex h-full flex-col pr-6">
         {/* stats */}
         <div className="flex justify-between text-white text-6xl mt-24 stats">
-              <h1 className="">{statsInView && <CountUp start={0} end={55} duration={4}></CountUp>}+ Clients</h1>
-              <h1 className="">{statsInView &&<CountUp start={0} end={8000} duration={4}></CountUp>}+ sqkm</h1>
-              <h1 className="">{statsInView &&<CountUp start={0} end={70} duration={4}></CountUp>}+ Projects</h1>
+              {/* <h1 className="">{statsInView && <CountUp start={0} end={55} duration={4}></CountUp>}+ Clients</h1> */}
+              {/* <h1 className="">{statsInView &&<CountUp start={0} end={8000} duration={4}></CountUp>}+ sqkm</h1>
+              <h1 className="">{statsInView &&<CountUp start={0} end={70} duration={4}></CountUp>}+ Projects</h1> */}
+              <div className="flex flex-col gap-2">
+                <h1 className="font-bold text-blue-300">{statsInView && <CountUp start={0} end={55} duration={4}></CountUp>}+</h1>
+                <h1 className=""> Clients</h1>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h1 className="font-bold text-blue-300">{statsInView &&<CountUp start={0} end={8000} duration={4}></CountUp>}+</h1>
+                <h1 className=""> sqkm</h1>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h1 className="font-bold text-blue-300">{statsInView &&<CountUp start={0} end={70} duration={4}></CountUp>}+</h1>
+                <h1 className=""> Projects</h1>
+              </div>
         </div>
          {/* partners    */}
-         <div className="flex flex-col mt-20 items-center justify-center">
-              <h1 className="text-5xl text-slate-400 font-bold">Our Partners</h1>
+         <div className="flex flex-col mt-24 items-center justify-center">
+              <h1 id="partners-title" className="text-5xl font-sans text-white font-semibold">OUR PARTNERS</h1>
             {/* partners logo wrapper */}
-              <div id="partner-wrapper" className="mt-12 grid grid-cols-4  bg-slate-300 gap-6 p-6 rounded-lg overflow-hidden">
+              <div className="mt-12 grid grid-cols-4  bg-slate-300 gap-6 p-6 rounded-lg overflow-hidden">
                {
                   partnerLogos.map((logo,index)=>{
                     return (
