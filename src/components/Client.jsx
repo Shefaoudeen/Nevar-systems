@@ -42,29 +42,29 @@ const Client = () => {
   useGSAP(()=>{
     gsap.to('.wrapper',{
       rotate : "360deg",
-      duration : 20,
+      duration : 25,
       repeat : -1,
       ease : "none"
     })
     gsap.to('.img',{
       rotate : "-=360deg",
-      duration : 20,
+      duration : 25,
       repeat : -1,
       ease : "none"
     })
   },[])
 
   return (
-    <div className="border w-full h-screen items-center">
+    <div className="w-full h-screen bg-gray-900">
       {/* our clients */}
       <div className="flex justify-center align items-center w-6/12 h-full">
         {/* <h1 className="text-3xl translate-x-40 max-w-fit">Our Clients</h1> */}
         {/* outer wrapper */}
-        <div className= "wrapper relative h-full w-[100vh] -translate-x-80"> 
+        <div className= "wrapper relative h-full w-[100vh] rounded-full -translate-x-80" style={{border: "15vh inset"}}> 
               {logos.map((item)=>{
                 return (
-                <div style={{transform: `rotate(calc(360deg/16 *${item.index}))`,transformOrigin: "50vh"}} key={item.index} className="absolute top-[50%] right-[100%] bottom-[50%] left-0 w-28 flex justify-center items-center">
-                  <img style={{transform: `rotate(calc(360deg/-16 *${item.index}))`}} src={item.img} className={`img w-28`}></img>
+                <div style={{transform: `rotate(calc(360deg/16 *${item.index}))`,transformOrigin: "50vh"}} key={item.index} className=" absolute top-[50%]  bottom-[50%] left-[-20%] w-28 flex justify-center items-center">
+                  <img style={{transform: `rotate(calc(360deg/-16 *${item.index}))`}} src={item.img} className={`img w-24 p-1`}></img>
                   </div>
                 )
               })}
