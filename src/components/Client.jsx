@@ -4,47 +4,56 @@ import gsap from "gsap";
 import { useGSAP, } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import logo1 from '../assets/clientLogos/logo1.png'
-import logo2 from '../assets/clientLogos/logo2.png'
-import logo3 from '../assets/clientLogos/logo3.png'
-import logo4 from '../assets/clientLogos/logo4.png'
-import logo5 from '../assets/clientLogos/logo5.png'
-import logo6 from '../assets/clientLogos/logo6.png'
-import logo7 from '../assets/clientLogos/logo7.png'
-import logo8 from '../assets/clientLogos/logo8.png'
-import logo9 from '../assets/clientLogos/logo9.png'
-import logo10 from '../assets/clientLogos/logo10.png'
-import logo11 from '../assets/clientLogos/logo11.png'
-import logo12 from '../assets/clientLogos/logo12.png'
-import logo13 from '../assets/clientLogos/logo13.png'
-import logo14 from '../assets/clientLogos/logo14.png'
-import logo15 from '../assets/clientLogos/logo15.png'
-import logo16 from '../assets/clientLogos/logo16.jpeg'
+import clientLogo1 from '../assets/clientLogos/logo1.png'
+import clientLogo2 from '../assets/clientLogos/logo2.png'
+import clientLogo3 from '../assets/clientLogos/logo3.png'
+import clientLogo4 from '../assets/clientLogos/logo4.png'
+import clientLogo5 from '../assets/clientLogos/logo5.png'
+import clientLogo6 from '../assets/clientLogos/logo6.png'
+import clientLogo7 from '../assets/clientLogos/logo7.png'
+import clientLogo8 from '../assets/clientLogos/logo8.png'
+import clientLogo9 from '../assets/clientLogos/logo9.png'
+import clientLogo10 from '../assets/clientLogos/logo10.png'
+import clientLogo11 from '../assets/clientLogos/logo11.png'
+import clientLogo12 from '../assets/clientLogos/logo12.png'
+import clientLogo13 from '../assets/clientLogos/logo13.png'
+import clientLogo14 from '../assets/clientLogos/logo14.png'
+import clientLogo15 from '../assets/clientLogos/logo15.png'
+import clientLogo16 from '../assets/clientLogos/logo16.jpeg'
+
+import partnerLogo1 from '../assets/partners/logo1.png'
+import partnerLogo2 from '../assets/partners/logo2.png'
+import partnerLogo3 from '../assets/partners/logo3.png'
+import partnerLogo4 from '../assets/partners/logo4.png'
 
 const Client = () => {
 
-  const logos = [
-    {img: logo1, index : 0},
-    {img: logo2, index : 1},
-    {img: logo3, index : 2},
-    {img: logo4, index : 3},
-    {img: logo5, index : 4},
-    {img: logo6, index : 5},
-    {img: logo7, index : 6},
-    {img: logo8, index : 7},
-    {img: logo9, index : 8},
-    {img: logo10, index : 9},
-    {img: logo11, index : 10},
-    {img: logo12, index : 11},
-    {img: logo13, index : 12},
-    {img: logo14, index : 13},
-    {img: logo15, index : 14},
-    {img: logo16, index : 15},
+  const ClientLogos = [
+    {img: clientLogo1, index : 0},
+    {img: clientLogo2, index : 1},
+    {img: clientLogo3, index : 2},
+    {img: clientLogo4, index : 3},
+    {img: clientLogo5, index : 4},
+    {img: clientLogo6, index : 5},
+    {img: clientLogo7, index : 6},
+    {img: clientLogo8, index : 7},
+    {img: clientLogo9, index : 8},
+    {img: clientLogo10, index : 9},
+    {img: clientLogo11, index : 10},
+    {img: clientLogo12, index : 11},
+    {img: clientLogo13, index : 12},
+    {img: clientLogo14, index : 13},
+    {img: clientLogo15, index : 14},
+    {img: clientLogo16, index : 15},
   ];
+
+  const partnerLogos = [partnerLogo1,partnerLogo2,partnerLogo3,partnerLogo4];
+
   const wrapperRef = useRef();
   const [statsInView,setStatsInView] = useState(false);
 
   gsap.registerPlugin(ScrollTrigger);
+
   useEffect(()=>{
     wrapperRef.current.addEventListener('mouseover',(e)=>{
       t1.pause();
@@ -54,7 +63,6 @@ const Client = () => {
       t1.play();
       t2.play();
     })
-    gsap.to
   },[])
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
@@ -79,6 +87,15 @@ const Client = () => {
         onToggle : ({isActive}) => setStatsInView(true),
       }
     })
+    gsap.from('.partners',{
+      y: 200,
+      duration : 1.2,
+      stagger : 0.2,
+      scrollTrigger : {
+        trigger : '.partners',
+        start : "top bottom",
+      }
+    })
   },[])
   return (
     <div className="w-full flex h-screen bg-gray-900">
@@ -89,10 +106,10 @@ const Client = () => {
       <div className= "hidden xl:flex justify-center items-center relative h-[45vw] w-[45vw] -translate-x-80">
           <h1 className="absolute right-[15vw] text-[2vw] w-20 text-white font-bold">OUR CLIENTS</h1>
         <div ref={wrapperRef} className= "wrapper flex  items-center relative h-full w-full" style={{boxShadow: "inset 0 0 0 15vh #D3D3D3",borderRadius:"50%"}}> 
-              {logos.map((item)=>{
+              {ClientLogos.map((item)=>{
                 return (
-                <div style={{transform: `rotate(calc(360deg/${logos.length} *${item.index}))`,transformOrigin: "22.5vw"}} key={item.index} className=" absolute z-10 top-[50%]  bottom-[50%] left-0 w-28 flex justify-center items-center">
-                  <img style={{transform: `rotate(calc(360deg/-${logos.length} *${item.index}))`}} src={item.img} className={`img w-24 p-1`}></img>
+                <div style={{transform: `rotate(calc(360deg/${ClientLogos.length} *${item.index}))`,transformOrigin: "22.5vw"}} key={item.index} className=" absolute z-10 top-[50%]  bottom-[50%] left-0 w-28 flex justify-center items-center">
+                  <img style={{transform: `rotate(calc(360deg/-${ClientLogos.length} *${item.index}))`}} src={item.img} className={`img w-24 p-1`}></img>
                   </div>
                 )
               })}
@@ -100,14 +117,28 @@ const Client = () => {
       </div>
       </div>
       {/* stats and partners*/}
-      <div className="flex h-full">
+      <div className="flex h-full flex-col pr-6">
         {/* stats */}
         <div className="flex justify-between text-white text-6xl mt-24 stats">
               <h1 className="">{statsInView && <CountUp start={0} end={55} duration={4}></CountUp>}+ Clients</h1>
               <h1 className="">{statsInView &&<CountUp start={0} end={8000} duration={4}></CountUp>}+ sqkm</h1>
               <h1 className="">{statsInView &&<CountUp start={0} end={70} duration={4}></CountUp>}+ Projects</h1>
         </div>
-            
+         {/* partners    */}
+         <div className="flex flex-col mt-20 items-center justify-center">
+              <h1 className="text-5xl text-slate-400 font-bold">Our Partners</h1>
+            {/* partners logo wrapper */}
+              <div id="partner-wrapper" className="mt-12 grid grid-cols-4  bg-slate-300 gap-6 p-6 rounded-lg overflow-hidden">
+               {
+                  partnerLogos.map((logo,index)=>{
+                    return (
+                    <div key={index} className="partners">
+                      <img className="w-40 px-2" src={logo}></img>
+                    </div>)
+                  })
+               }
+              </div>
+         </div>
       </div>
     </div>
   );
