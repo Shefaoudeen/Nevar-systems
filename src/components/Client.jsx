@@ -21,13 +21,12 @@ import clientLogo14 from "../assets/clientLogos/logo14.png";
 import clientLogo15 from "../assets/clientLogos/logo15.png";
 import clientLogo16 from "../assets/clientLogos/logo16.jpeg";
 
-import partnerLogo1 from '../assets/partners/logo1.png'
-import partnerLogo2 from '../assets/partners/logo2.png'
-import partnerLogo3 from '../assets/partners/logo3.png'
-import partnerLogo4 from '../assets/partners/logo4.png'
+import partnerLogo1 from "../assets/partners/logo1.png";
+import partnerLogo2 from "../assets/partners/logo2.png";
+import partnerLogo3 from "../assets/partners/logo3.png";
+import partnerLogo4 from "../assets/partners/logo4.png";
 
 const Client = () => {
-
   const ClientLogos = [
     { img: clientLogo1, index: 0 },
     { img: clientLogo2, index: 1 },
@@ -47,7 +46,7 @@ const Client = () => {
     { img: clientLogo16, index: 15 },
   ]
 
-  const partnerLogos = [partnerLogo1,partnerLogo2,partnerLogo3,partnerLogo4];
+  const partnerLogos = [partnerLogo1, partnerLogo2, partnerLogo3, partnerLogo4];
 
   const wrapperRef = useRef();
   const [statsInView, setStatsInView] = useState(false);
@@ -62,6 +61,16 @@ const Client = () => {
         wrapperRef.current.addEventListener("mouseout", (e) => {
           t1.play();
           t2.play();
+        });
+
+        const totalWidth =
+        document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
+        
+        gsap.to("#clientScroll", {
+          x: -totalWidth,
+          duration: 20,
+          ease: "none",
+          repeat: -1,
         });
       }, []);
   const t1 = gsap.timeline();
@@ -113,16 +122,7 @@ const Client = () => {
         start: "top bottom",
       },
     });
-
-    const totalWidth =
-      document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
-
-    gsap.to("#clientScroll", {
-      x: -totalWidth,
-      duration: 20,
-      ease: "none",
-      repeat: -1,
-    });
+    
   }, []);
   return (
     <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden">
