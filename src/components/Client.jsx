@@ -63,7 +63,18 @@ const Client = () => {
           t1.play();
           t2.play();
         });
-      }, []);
+        
+    const totalWidth =
+    document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
+
+    gsap.to("#clientScroll", {
+    x: -totalWidth,
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+     });
+     
+}, []);
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
 
@@ -114,15 +125,6 @@ const Client = () => {
       },
     });
 
-    const totalWidth =
-      document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
-
-    gsap.to("#clientScroll", {
-      x: -totalWidth,
-      duration: 20,
-      ease: "none",
-      repeat: -1,
-    });
   }, []);
   return (
     <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden">
