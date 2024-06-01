@@ -63,18 +63,8 @@ const Client = () => {
           t1.play();
           t2.play();
         });
-        
-    const totalWidth =
-    document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
 
-    gsap.to("#clientScroll", {
-    x: -totalWidth,
-    duration: 20,
-    ease: "none",
-    repeat: -1,
-     });
-     
-}, []);
+      }, []);
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
 
@@ -125,6 +115,16 @@ const Client = () => {
       },
     });
 
+    const totalWidth =
+        document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
+        console.log("total width of scroll bar",totalWidth);
+        gsap.to("#clientScroll", {
+          x: -totalWidth,
+          duration: 20,
+          ease: "none",
+          repeat: -1,
+        });
+    
   }, []);
   return (
     <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden">
@@ -174,7 +174,7 @@ const Client = () => {
       {/* stats and partners*/}
       <div className="flex h-full flex-col xl:justify-evenly justify-around p-8">
         {/* stats */}
-        <div className="mt-6 flex justify-evenly text-white text-4xl xl:text-5xl stats">
+        <div className="mt-6 flex justify-evenly text-white text-3xl md:text-4xl xl:text-5xl stats">
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-blue-300">
               {statsInView && (
@@ -208,7 +208,7 @@ const Client = () => {
         <div className="flex flex-col mt-16 items-center justify-center">
           <h1
             id="partners-title"
-            className="xl:text-5xl text-4xl font-sans text-white font-semibold"
+            className="xl:text-4xl text-3xl font-sans text-white font-light md:font-semibold"
           >
             OUR PARTNERS
           </h1>
@@ -226,8 +226,8 @@ const Client = () => {
 
         {/* clients logo scroll */}
         <div className="flex flex-col gap-6 mt-8 w-screen items-center justify-center xl:hidden px-2">
-          <h1 className="text-4xl text-white font-semibold">OUR CLIENTS</h1>
-          <div className="bg-slate-200/80 py-4 w-screen flex-wrap overflow-hidden">
+          <h1 className="text-3xl  text-white font-light  md:font-semibold">OUR CLIENTS</h1>
+          <div className="bg-slate-200/80 py-2 md:py-4 w-screen flex-wrap overflow-hidden">
             <div id="clientScroll" className="flex">
               {ClientLogos.map((item, index) => {
                 return (
