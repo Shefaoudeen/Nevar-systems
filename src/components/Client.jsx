@@ -21,12 +21,13 @@ import clientLogo14 from "../assets/clientLogos/logo14.png";
 import clientLogo15 from "../assets/clientLogos/logo15.png";
 import clientLogo16 from "../assets/clientLogos/logo16.jpeg";
 
-import partnerLogo1 from "../assets/partners/logo1.png";
-import partnerLogo2 from "../assets/partners/logo2.png";
-import partnerLogo3 from "../assets/partners/logo3.png";
-import partnerLogo4 from "../assets/partners/logo4.png";
+import partnerLogo1 from '../assets/partners/logo1.png'
+import partnerLogo2 from '../assets/partners/logo2.png'
+import partnerLogo3 from '../assets/partners/logo3.png'
+import partnerLogo4 from '../assets/partners/logo4.png'
 
 const Client = () => {
+
   const ClientLogos = [
     { img: clientLogo1, index: 0 },
     { img: clientLogo2, index: 1 },
@@ -46,7 +47,7 @@ const Client = () => {
     { img: clientLogo16, index: 15 },
   ]
 
-  const partnerLogos = [partnerLogo1, partnerLogo2, partnerLogo3, partnerLogo4];
+  const partnerLogos = [partnerLogo1,partnerLogo2,partnerLogo3,partnerLogo4];
 
   const wrapperRef = useRef();
   const [statsInView, setStatsInView] = useState(false);
