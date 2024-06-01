@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -48,24 +48,27 @@ const Client = () => {
   ]
 
   const partnerLogos = [partnerLogo1,partnerLogo2,partnerLogo3,partnerLogo4];
-
   const wrapperRef = useRef();
   const clientLogoRef = useRef();
   const [statsInView, setStatsInView] = useState(false);
 
   gsap.registerPlugin(ScrollTrigger);
 
-      useEffect(() => {
-        wrapperRef.current.addEventListener("mouseover", (e) => {
-          t1.pause();
-          t2.pause();
-        });
-        wrapperRef.current.addEventListener("mouseout", (e) => {
-          t1.play();
-          t2.play();
-        });
+  //play and pause client scroll animation on hover
 
-      }, []);
+      // useEffect(() => {
+      //   wrapperRef.current.addEventListener("mouseover", (e) => {
+      //     t1.pause();
+      //     t2.pause();
+      //   });
+      //   wrapperRef.current.addEventListener("mouseout", (e) => {
+      //     t1.play();
+      //     t2.play();
+      //   });
+
+      // }, []);
+
+
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
 
@@ -103,7 +106,7 @@ const Client = () => {
       duration: 1.2,
       stagger: 0.2,
       scrollTrigger: {
-        trigger: ".partners",
+        trigger: "#partners-title",
         start: "top bottom",
       },
     });
@@ -116,14 +119,17 @@ const Client = () => {
       },
     });
 
-    const totalWidth = clientLogoRef.current.offsetWidth * ClientLogos.length;
-        console.log("total width of scroll bar",totalWidth);
-        gsap.to("#clientScroll", {
-          x: -totalWidth,
-          duration: 20,
-          ease: "none",
-          repeat: -1,
-        });
+    // const totalWidth = clientLogoRef.current.offsetWidth * ClientLogos.length;
+    const totalWidth = 96 * ClientLogos.length;
+    console.log("width of a logo",clientLogoRef.current.offsetWidth);
+    console.log("total width of scroll bar",totalWidth);
+
+    gsap.to("#clientScroll", {
+      x: -totalWidth,
+      duration: 40,
+      ease: "none",
+      repeat: -1,
+    });
     
   }, []);
   return (
@@ -134,7 +140,7 @@ const Client = () => {
         <div className="hidden xl:flex justify-center items-center relative h-[45vw] w-[45vw] -translate-x-80">
           <h1
             id="clients-title"
-            className="absolute right-[15vw] text-[2vw] w-20 text-white font-bold"
+            className="absolute px-1 translate-x-[80%] text-3xl w-20 text-white font-semibold"
           >
             OUR CLIENTS
           </h1>
@@ -208,16 +214,16 @@ const Client = () => {
         <div className="flex flex-col mt-16 items-center justify-center">
           <h1
             id="partners-title"
-            className="xl:text-4xl text-3xl font-sans text-white font-light md:font-semibold"
+            className="xl:text-4xl text-3xl font-sans text-white md:font-semibold"
           >
             OUR PARTNERS
           </h1>
           {/* partners logo wrapper */}
-          <div className="xl:mt-12 mt-6 grid grid-cols-4  bg-slate-300 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8">
+          <div className="xl:mt-12 mt-6 grid grid-cols-4  bg-slate-300/80 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8 shadow-[0px_0px_10px_rgba(0,0,0,0.38)_inset]">
             {partnerLogos.map((logo, index) => {
               return (
                 <div key={index} className="partners">
-                  <img className="w-40 px-2" src={logo}></img>
+                  <img className="md:w-40 md:px-2" src={logo}></img>
                 </div>
               );
             })}
@@ -226,7 +232,7 @@ const Client = () => {
 
         {/* clients logo scroll */}
         <div className="flex flex-col gap-6 mt-8 w-screen items-center justify-center xl:hidden px-2">
-          <h1 className="text-3xl  text-white font-light  md:font-semibold">OUR CLIENTS</h1>
+          <h1 className="text-3xl  text-white md:font-semibold">OUR CLIENTS</h1>
           <div className="bg-slate-200/80 py-2 md:py-4 w-screen flex-wrap overflow-hidden">
             <div  id="clientScroll" className="flex">
               {ClientLogos.map((item, index) => {
