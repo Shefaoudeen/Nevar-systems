@@ -45,7 +45,7 @@ const Client = () => {
     { img: clientLogo14, index: 13 },
     { img: clientLogo15, index: 14 },
     { img: clientLogo16, index: 15 },
-  ]
+  ];
 
   const partnerLogos = [partnerLogo1,partnerLogo2,partnerLogo3,partnerLogo4];
 
@@ -54,29 +54,28 @@ const Client = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-      useEffect(() => {
-        wrapperRef.current.addEventListener("mouseover", (e) => {
-          t1.pause();
-          t2.pause();
-        });
-        wrapperRef.current.addEventListener("mouseout", (e) => {
-          t1.play();
-          t2.play();
-        });
-      }, []);
+  useEffect(() => {
+    wrapperRef.current.addEventListener("mouseover", (e) => {
+      t1.pause();
+      t2.pause();
+    });
+    wrapperRef.current.addEventListener("mouseout", (e) => {
+      t1.play();
+      t2.play();
+    });
+  }, []);
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
-
   useGSAP(() => {
     t1.to(wrapperRef.current, {
       rotate: "360deg",
-      duration: 60,
+      duration: 25,
       repeat: -1,
       ease: "none",
     });
     t2.to(".img", {
       rotate: "-=360deg",
-      duration: 60,
+      duration: 25,
       repeat: -1,
       ease: "none",
     });
@@ -114,15 +113,11 @@ const Client = () => {
       },
     });
 
-    const totalWidth =
-      document.querySelector("#clientImage").offsetWidth * ClientLogos.length;
-
-    gsap.to("#clientScroll", {
-      x: -totalWidth,
-      duration: 20,
-      ease: "none",
-      repeat: -1,
-    });
+    // gsap.to('#clientScroll',{
+    //   xPercent: -100 ,
+    //   duration : 10,
+    //   ease : "none"
+    // })
   }, []);
   return (
     <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden">
@@ -166,13 +161,12 @@ const Client = () => {
             })}
           </div>
         </div>
-        
       </div>
 
       {/* stats and partners*/}
-      <div className="flex h-full flex-col xl:justify-evenly justify-around p-8">
+      <div className="flex h-full flex-col xl:justify-evenly p-8">
         {/* stats */}
-        <div className="mt-6 flex justify-evenly text-white text-4xl xl:text-5xl stats">
+        <div className="mt-6 flex justify-evenly text-white text-4xl xl:text-6xl stats">
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-blue-300">
               {statsInView && (
@@ -185,7 +179,7 @@ const Client = () => {
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-blue-300">
               {statsInView && (
-                <CountUp start={0} end={8000} duration={3.5}></CountUp>
+                <CountUp start={0} end={8000} duration={4}></CountUp>
               )}
               +
             </h1>
@@ -203,7 +197,7 @@ const Client = () => {
         </div>
 
         {/* partners    */}
-        <div className="flex flex-col mt-16 items-center justify-center">
+        <div className="flex flex-col mt-24 items-center justify-center">
           <h1
             id="partners-title"
             className="xl:text-5xl text-4xl font-sans text-white font-semibold"
@@ -211,7 +205,7 @@ const Client = () => {
             OUR PARTNERS
           </h1>
           {/* partners logo wrapper */}
-          <div className="xl:mt-12 mt-6 grid grid-cols-4  bg-slate-300 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8">
+          <div className="xl:mt-12 mt-6 grid grid-cols-4  bg-slate-300 gap-6 p-6 rounded-lg overflow-hidden">
             {partnerLogos.map((logo, index) => {
               return (
                 <div key={index} className="partners">
@@ -223,29 +217,13 @@ const Client = () => {
         </div>
 
         {/* clients logo scroll */}
-        <div className="flex flex-col gap-6 mt-8 w-screen items-center justify-center xl:hidden px-2">
-          <h1 className="text-4xl text-white font-semibold">OUR CLIENTS</h1>
-          <div className="bg-slate-200/80 py-4 w-screen flex-wrap overflow-hidden">
-            <div id="clientScroll" className="flex">
-              {ClientLogos.map((item, index) => {
-                return (
-                  <img
-                    key={index}
-                    src={item.img}
-                    className="w-24 px-2 object-contain"
-                    id="clientImage"
-                  ></img>
-                );
-              })}
-              {ClientLogos.map((item, index) => {
-                return (
-                  <img
-                    key={index + 15}
-                    src={item.img}
-                    className="w-24 px-2 object-contain"
-                  ></img>
-                );
-              })}
+        <div className="flex flex-col gap-6 mt-6 w-screen items-center justify-center xl:hidden px-2 overflow-hidden">
+          <h1 className="text-4xl  text-white">Our clients</h1>
+          <div className="bg-slate-200 flex flex-nowrap">
+            <div id="clientScroll" className="flex flex-nowrap">
+                {ClientLogos.map((item) => {
+                return <img src={item.img} className="w-20 px-2 object-contain"></img>;
+                })}
             </div>
           </div>
         </div>
