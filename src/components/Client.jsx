@@ -221,11 +221,11 @@ const Client = () => {
             OUR PARTNERS
           </h1>
           {/* partners logo wrapper */}
-          <div className="xl:mt-12 mt-6 grid grid-cols-4  bg-slate-300/80 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8 shadow-[0px_0px_10px_rgba(0,0,0,0.38)_inset]">
+          <div className="xl:mt-12 mt-6 grid grid-cols-2 sm:grid-cols-4  bg-slate-300/80 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8 shadow-[0px_0px_10px_rgba(0,0,0,0.38)_inset]">
             {partnerLogos.map((logo, index) => {
               return (
                 <div key={index} className="partners">
-                  <img className="md:w-40 md:px-2" src={logo}></img>
+                  <img className="w-24 md:w-40 md:px-2" src={logo}></img>
                 </div>
               );
             })}
