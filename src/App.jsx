@@ -2,7 +2,7 @@ import Client from "./components/Client";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-import Product from "./components/Product";
+import About from "./components/About";
 import Review from "./components/Review";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
     <main>
       <Navbar />
       <Hero />
-      <Product />
+      <About />
       <Client />
       <Review />
       <Footer />

@@ -10,11 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@gsap/react": "^2.1.1",
+    "@react-three/drei": "^9.106.0",
+    "@react-three/fiber": "^8.16.7",
+    "@tsparticles/engine": "^3.4.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.4.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
     "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-font": "^1.2.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
