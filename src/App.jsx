@@ -4,13 +4,15 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Review from "./components/Review";
+import Services from "./components/Services";
 
 export default function App() {
   return (
     <main>
       <Navbar />
       <Hero />
-      <Product />
+      <Services/>
+      {/* <Product /> */}
       <Client />
       <Review />
       <Footer />
