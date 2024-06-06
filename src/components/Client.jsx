@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -74,13 +74,13 @@ const Client = () => {
     console.log("total width of scroll bar", totalWidth);
 
     gsap.to("#clientScroll", {
-      x: -totalWidth,
+      x:  -totalWidth, //1792
       duration: 40,
       ease: "none",
       repeat: -1,
     });
 
-  }),[];
+  },[clientLogoRef]);
 
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
@@ -110,7 +110,7 @@ const Client = () => {
     gsap.to(".stats", {
       scrollTrigger: {
         trigger: ".stats",
-        start: "top bottom",
+        start: "100px bottom",
         end: "bottom top",
         onToggle: ({ isActive }) => setStatsInView(true),
       },
@@ -119,10 +119,10 @@ const Client = () => {
       y: 200,
       duration: 1.2,
       stagger: 0.2,
-      filter: "blur(8px)",
+      filter: "blur(5px)",
       scrollTrigger: {
         trigger: "#partners-title",
-        start: "top bottom",
+        start: "200px bottom",
       },
     });
     gsap.from("#partners-title", {
@@ -136,11 +136,11 @@ const Client = () => {
   }, []);
 
   return (
-    <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden select-none">
-      {/* our clients */}
-      <div className="hidden xl:flex relative items-center w-[45vw] h-full">
+    <div className="w-screen relative flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 select-none">
+      {/* our clients rotating*/}
+      {/* <div className="hidden xl:flex relative items-center w-[45vw] h-full"> */}
         {/* outer wrapper */}
-        <div className="hidden xl:flex justify-center items-center relative h-[45vw] w-[45vw] -translate-x-80">
+        {/* <div className="hidden xl:flex justify-center items-center relative h-[45vw] w-[45vw] -translate-x-80">
           <h1
             id="clients-title"
             className="absolute px-1 translate-x-[90%] text-3xl w-20 text-white font-semibold"
@@ -177,12 +177,19 @@ const Client = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
+      {/* <div className="absolute w-[150vw] h-full -left-2/3 z-10 drop-shadow-xl">
+      <Canvas>
+        <Suspense fallback={<h1 className="bg-slate-900">Loading</h1>}>
+          <Sphere/>
+        </Suspense>
+      </Canvas>
+      </div> */}
 
       {/* stats and partners*/}
       <div className="flex h-full flex-col xl:justify-evenly justify-around p-8">
         {/* stats */}
-        <div className="mt-6 flex justify-evenly text-white text-3xl md:text-4xl xl:text-5xl stats">
+        <div className=" mt-6 flex  justify-evenly text-white text-3xl md:text-4xl xl:text-5xl stats">
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-blue-300">
               {statsInView && (
@@ -213,7 +220,7 @@ const Client = () => {
         </div>
 
         {/* partners    */}
-        <div className="flex flex-col mt-16 items-center justify-center">
+        <div className=" flex flex-col mt-16 items-center justify-center">
           <h1
             id="partners-title"
             className="xl:text-4xl text-3xl font-sans text-white md:font-semibold"
@@ -221,7 +228,7 @@ const Client = () => {
             OUR PARTNERS
           </h1>
           {/* partners logo wrapper */}
-          <div className="xl:mt-12 mt-6 grid grid-cols-2 sm:grid-cols-4  bg-slate-300/80 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8 shadow-[0px_0px_10px_rgba(0,0,0,0.38)_inset]">
+          <div className="xl:mt-6 mt-6 grid grid-cols-2 sm:grid-cols-4  bg-slate-300/80 gap-6 p-3 lg:p-6 rounded-lg overflow-hidden mx-8 shadow-[0px_0px_10px_rgba(0,0,0,0.38)_inset]">
             {partnerLogos.map((logo, index) => {
               return (
                 <div key={index} className="partners">
@@ -230,20 +237,20 @@ const Client = () => {
               );
             })}
           </div>
-        </div>
+        </div> 
 
-        {/* clients logo scroll */}
-        <div className="flex flex-col gap-6 mt-8 w-screen items-center justify-center xl:hidden px-2">
+        {/* clients logo horizontal scroll */}
+        <div className="flex flex-col gap-6 my-8 w-screen items-center justify-center px-2">
           <h1 className="text-3xl  text-white md:font-semibold">OUR CLIENTS</h1>
           <div className="bg-slate-200/80 py-2 md:py-4 w-screen flex-wrap overflow-hidden">
-            <div id="clientScroll" className="flex">
+            <div id="clientScroll" className={`flex`}>
               {ClientLogos.map((item, index) => {
                 return (
                   <img
                     ref={clientLogoRef}
                     key={index}
                     src={item.img}
-                    className="w-24 px-2 object-contain"
+                    className="w-28 px-2 object-contain grayscale hover:grayscale-0 duration-500"
                     id="clientImage"
                   ></img>
                 );
@@ -251,9 +258,9 @@ const Client = () => {
               {ClientLogos.map((item, index) => {
                 return (
                   <img
-                    key={index + 15}
+                    key={index}
                     src={item.img}
-                    className="w-24 px-2 object-contain"
+                    className="w-28 px-2 object-contain grayscale hover:grayscale-0 duration-500"
                   ></img>
                 );
               })}
