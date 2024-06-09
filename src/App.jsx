@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Review from "./components/Review";
 import Service from "./components/Service";
+import Product from "./components/Product";
 
 export default function App() {
   return (
