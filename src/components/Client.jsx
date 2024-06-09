@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
