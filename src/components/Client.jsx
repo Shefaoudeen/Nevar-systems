@@ -21,13 +21,12 @@ import clientLogo14 from "../assets/clientLogos/logo14.png";
 import clientLogo15 from "../assets/clientLogos/logo15.png";
 import clientLogo16 from "../assets/clientLogos/logo16.jpeg";
 
-import partnerLogo1 from '../assets/partners/logo1.png'
-import partnerLogo2 from '../assets/partners/logo2.png'
-import partnerLogo3 from '../assets/partners/logo3.png'
-import partnerLogo4 from '../assets/partners/logo4.png'
+import partnerLogo1 from "../assets/partners/logo1.png";
+import partnerLogo2 from "../assets/partners/logo2.png";
+import partnerLogo3 from "../assets/partners/logo3.png";
+import partnerLogo4 from "../assets/partners/logo4.png";
 
 const Client = () => {
-
   const ClientLogos = [
     { img: clientLogo1, index: 0 },
     { img: clientLogo2, index: 1 },
@@ -80,8 +79,8 @@ const Client = () => {
       ease: "none",
       repeat: -1,
     });
-
-  }),[];
+  }),
+    [];
 
   const t1 = gsap.timeline();
   const t2 = gsap.timeline();
@@ -137,7 +136,7 @@ const Client = () => {
   }, []);
 
   return (
-    <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-700 via-slate-900  to-slate-700 overflow-hidden select-none">
+    <div className="w-full flex h-screen justify-center bg-gradient-to-tr from-slate-900 cvia-slate-900  to-slate-900 overflow-hidden select-none">
       {/* our clients */}
       <div className="hidden xl:flex relative items-center w-[45vw] h-full">
         {/* outer wrapper */}
@@ -237,7 +236,7 @@ const Client = () => {
         <div className="flex flex-col gap-6 mt-8 w-screen items-center justify-center xl:hidden px-2">
           <h1 className="text-3xl  text-white md:font-semibold">OUR CLIENTS</h1>
           <div className="bg-slate-200/80 py-2 md:py-4 w-screen flex-wrap overflow-hidden">
-            <div  id="clientScroll" className="flex">
+            <div id="clientScroll" className="flex">
               {ClientLogos.map((item, index) => {
                 return (
                   <img
