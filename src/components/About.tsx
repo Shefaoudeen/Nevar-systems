@@ -3,10 +3,8 @@ import { SparklesCore } from "./ui/sparkles";
 
 const Product = () => {
   return (
-    // <div className="border border-black w-full h-screen items-center flex justify-center text-3xl -mt-10">
-      // <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden">
-      <div className="w-full absolute inset-0 h-screen">
+    <div className="min-h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden">
+      <div className="w-full absolute inset-0 min-h-screen">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
@@ -17,17 +15,17 @@ const Product = () => {
           particleColor="#FFFFFF"
         />
       </div>
-      
-      <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
+
+      <h1 className="text-3xl md:text-7xl lg:text-9xl font-bold text-center text-white relative z-20">
         About Us
       </h1>
-      
-      <div className="w-[40rem] h-40 relative">
+
+      <div className="w-full max-w-xl md:max-w-2xl lg:max-w-4xl h-40 relative mt-6 md:mt-10 lg:mt-14 px-4">
         {/* Gradients */}
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+        <div className="absolute inset-x-10 md:inset-x-20 lg:inset-x-40 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] blur-sm" />
+        <div className="absolute inset-x-10 md:inset-x-20 lg:inset-x-40 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px" />
+        <div className="absolute inset-x-40 md:inset-x-60 lg:inset-x-80 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] blur-sm" />
+        <div className="absolute inset-x-40 md:inset-x-60 lg:inset-x-80 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px" />
 
         {/* Core component */}
         <SparklesCore
@@ -38,17 +36,14 @@ const Product = () => {
           className="w-full h-full"
           particleColor="#FFFFFF"
         />
-        <p className="text-neutral-500 max-w-xl mx-auto my-2 text-2xl text-center relative z-10 -mt-10 ">
-        Nevar Systems develops cutting-edge drone solutions for complex environments. We collect geospatial data, generate insights, and empower professionals in humanitarian aid, surveying, and engineering to make faster decisions.
+        <p className="text-neutral-500 max-w-xl mx-auto my-2 text-lg md:text-xl lg:text-2xl text-center relative z-10 -mt-10 md:-mt-20 lg:-mt-20 px-2">
+          Nevar Systems develops cutting-edge drone solutions for complex environments. We collect geospatial data, generate insights, and empower professionals in humanitarian aid, surveying, and engineering to make faster decisions.
         </p>
-        
+
         {/* Radial Gradient to prevent sharp edges */}
         <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-      
       </div>
     </div>
-    
-    // </div>
   );
 };
 
