@@ -6,6 +6,7 @@ import About from "./components/About";
 import Review from "./components/Review";
 import Service from "./components/Service";
 import Product from "./components/Product";
+import Service1 from "./components/Service1";
 
 export default function App() {
   return (
@@ -13,8 +14,9 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <Product />
-      <Service />
+      <Service1/>
+      {/* <Services/> */}
+      {/* <Product /> */}
       <Client />
       <Review />
       <Footer />

@@ -24,6 +24,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-font": "^1.2.1",
+    "react-responsive-carousel": "^3.2.23",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
