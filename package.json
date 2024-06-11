@@ -23,7 +23,6 @@
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
-    "react-font": "^1.2.1",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
